@@ -1,4 +1,4 @@
-import 'package:estudo_bottom_menu/bottom_menu.dart';
+import 'package:estudo_bottom_menu/lead_layout_page.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends AppBar {
@@ -26,7 +26,7 @@ class CustomAppBar extends AppBar {
           Icons.arrow_back,
           color: Colors.black,
         ),
-        onPressed: () => BottomMenuPage.bottomMenuPageState.popLayout(),
+        onPressed: () => LeadLayoutPage.bottomMenuPageState.popLayout(),
       ) : null,
       automaticallyImplyLeading: backButton ? true : false,
       title: Text(title),

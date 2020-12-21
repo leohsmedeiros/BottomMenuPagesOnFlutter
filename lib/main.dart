@@ -1,4 +1,4 @@
-import 'package:estudo_bottom_menu/bottom_menu.dart';
+import 'package:estudo_bottom_menu/lead_layout_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: BottomMenuPage(),
+      home: LeadLayoutPage(),
     );
   }
 }

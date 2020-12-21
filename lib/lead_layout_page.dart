@@ -4,17 +4,17 @@ import 'package:estudo_bottom_menu/pages/page1.dart';
 import 'package:estudo_bottom_menu/pages/page3.dart';
 import 'package:flutter/material.dart';
 
-class BottomMenuPage extends StatefulWidget {
-  static BottomMenuPageState bottomMenuPageState;
+class LeadLayoutPage extends StatefulWidget {
+  static LeadLayoutPageState bottomMenuPageState;
 
   @override
-  BottomMenuPageState createState() {
-    bottomMenuPageState = BottomMenuPageState();
+  LeadLayoutPageState createState() {
+    bottomMenuPageState = LeadLayoutPageState();
     return bottomMenuPageState;
   }
 }
 
-class BottomMenuPageState<T extends StatefulWidget> extends State<T> {
+class LeadLayoutPageState<T extends StatefulWidget> extends State<T> {
   final List<Widget> _pages = [Page1(), Page2(), Page3()];
 
   int _currentIndex;
@@ -45,16 +45,33 @@ class BottomMenuPageState<T extends StatefulWidget> extends State<T> {
     });
   }
 
+  GlobalKey<ScaffoldState> key = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     print('build');
     print('index: $_currentIndex');
 
     return Scaffold(
+      key: key,
       appBar: CustomAppBar.returnAppBar(context,
+          openDrawerFunction: () => key.currentState.openDrawer(),
           hadDrawer: _subLayouts.length == 0,
           subPage: _subLayouts.length > 0,
-          title: "Page 1"),
+          title: "Page"),
+      drawer: Drawer(
+          child: Column(
+        children: [
+          Text('Drawer'),
+          RaisedButton(
+              child: Text("Open page 2"),
+              onPressed: () => setState(() {
+                _currentIndex = 1;
+                _currentBody = _pages[_currentIndex];
+                _subLayouts.clear();
+              }))
+        ],
+      )),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) => setState(() {

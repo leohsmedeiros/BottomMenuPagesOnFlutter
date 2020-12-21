@@ -1,4 +1,4 @@
-import 'package:estudo_bottom_menu/bottom_menu.dart';
+import 'package:estudo_bottom_menu/lead_layout_page.dart';
 import 'package:estudo_bottom_menu/pages/subpage1.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +14,7 @@ class _Page1State extends State<Page1> {
     return Scaffold(
       body: RaisedButton(
         child: Text("go to subpage 1"),
-        onPressed: () => BottomMenuPage.bottomMenuPageState.pushLayout(SubPage1()),
+        onPressed: () => LeadLayoutPage.bottomMenuPageState.pushLayout(SubPage1()),
       ),
     );
   }
